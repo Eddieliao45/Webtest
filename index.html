@@ -2,29 +2,37 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eske Place Coffee Order Form</title>
+    <title>Eske Place Coffee House Order Form</title>
     <style>
         body {
-            font-family: 'Microsoft JhengHei', sans-serif;
-            margin: 20px;
-            line-height: 1.6;
+            font-family: "Microsoft JhengHei", sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
         }
         .header h1 {
             font-size: 26px;
             font-weight: bold;
+            margin: 10px 0;
         }
-        .promo {
+        .header .title-red {
+            color: red;
+        }
+        .header .divider {
+            width: 60%;
+            margin: 10px auto;
+            border: 1px solid black;
+        }
+        .info {
             font-size: 18px;
             text-align: left;
             margin-bottom: 20px;
         }
-        .promo p {
-            margin: 5px 0;
+        .info li {
+            margin-bottom: 8px;
         }
         table {
             width: 100%;
@@ -35,75 +43,88 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
-            font-size: 16px;
-        }
-        th {
-            background-color: #f2f2f2;
+            font-size: 14px;
+            word-wrap: break-word;
         }
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #f2f2f2;
         }
-        input[type="number"] {
+        .quantity-input {
             width: 60px;
             padding: 5px;
-            font-family: 'Microsoft JhengHei', sans-serif;
         }
-        .clear-btn {
+        .clear-button {
             float: right;
+            margin: 10px 0;
             padding: 10px 20px;
             background-color: #ff4d4d;
             color: white;
             border: none;
             cursor: pointer;
-            font-family: 'Microsoft JhengHei', sans-serif;
-            margin-bottom: 20px;
         }
-        .clear-btn:hover {
-            background-color: #cc0000;
-        }
-        .summary, .shipping {
+        .summary-table {
+            display: none;
             margin-top: 20px;
         }
-        .shipping label {
+        .delivery-form {
+            margin-top: 20px;
+        }
+        .delivery-form label {
             display: block;
             margin: 10px 0 5px;
         }
-        .shipping input[type="text"],
-        .shipping input[type="tel"] {
+        .delivery-form input[type="text"],
+        .delivery-form input[type="tel"] {
             width: 100%;
-            max-width: 300px;
+            max-width: 500px;
             padding: 8px;
             margin-bottom: 10px;
-            font-family: 'Microsoft JhengHei', sans-serif;
         }
-        .shipping input[type="radio"],
-        .shipping input[type="checkbox"] {
+        .delivery-form input[type="radio"] {
             margin-right: 10px;
         }
-        .hidden {
-            display: none;
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            font-style: italic;
+        }
+        .footer a {
+            color: blue;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <div class="header">
-        <h1>ESKE PLACE COFFEE HOUSE<br>The Specialty Coffee Of Apr-May, 2025<br>精品咖啡選單 / 四月-五月 (母親節特惠)</h1>
+        <h1>
+            <span class="title-red">ESKE PLACE COFFEE HOUSE</span><br>
+            The Specialty Coffee Of Apr-May, 2025<br>
+            精品咖啡選單 / 四月-五月 (母親節特惠)
+        </h1>
+        <hr class="divider">
     </div>
 
-    <div class="promo">
-        <p>- 母親節禮盒自由搭配特惠(咖啡豆任選2款或10入耳掛式精品咖啡+禮盒包裝)</p>
-        <p>- 母親節期間9折優惠中,送給媽媽最好喝的咖啡!!</p>
-        <p>- 單筆消費滿$1000免運(宅配/超商店到店)/本月暫不提供面交服務!!</p>
-        <p>- 歡迎在 Eske Place 專頁洽詢,讓我們的咖啡師為您推薦最適合妳/你的咖啡</p>
-        <p>- 商業合作/辦公室團購/大宗採買 歡迎洽詢</p>
+    <!-- Info Section -->
+    <div class="info">
+        <ul>
+            <li>母親節禮盒自由搭配特惠(咖啡豆任選2款或10入耳掛式精品咖啡+禮盒包裝)</li>
+            <li>母親節期間9折優惠中，送給媽媽最好喝的咖啡!!</li>
+            <li>單筆消費滿$1000免運(宅配/超商店到店)/本月暫不提供面交服務!!</li>
+            <li>歡迎在 Eske Place 專頁洽詢，讓我們的咖啡師為您推薦最適合妳/你的咖啡</li>
+            <li>商業合作/辦公室團購/大宗採買 歡迎洽詢</li>
+        </ul>
     </div>
 
+    <!-- Coffee Selection Table -->
     <table id="coffeeTable">
         <thead>
             <tr>
                 <th>序號</th>
                 <th>品項 (中)</th>
                 <th>Item (EN)</th>
+                <th>處理法</th>
                 <th>焙度</th>
                 <th>風味</th>
                 <th>克數</th>
@@ -116,239 +137,262 @@
                 <td>1</td>
                 <td>Eske Place - 14 年經典紐澳風格配方豆 | 美式&牛奶系列雙用配方 |</td>
                 <td>Eske Place House Blend / Sweet As 『好呦!』</td>
+                <td>N/A</td>
                 <td>淺中焙</td>
                 <td>堅果 焦糖 太妃糖 可可 圓潤飽滿</td>
                 <td>200</td>
                 <td>320</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="320"></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>哥倫比亞 季節限定精品義式配方 | 美式&牛奶系列雙用配方 |</td>
                 <td>SUGARYX BERRY 甜甜莓果</td>
+                <td>N/A</td>
                 <td>中焙</td>
                 <td>莓果 巨峰葡萄 焦糖 豐富熱帶水果甜 圓潤口感</td>
                 <td>200</td>
                 <td>450</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="450"></td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>衣索比亞 古吉 罕貝拉牡丹王 G1日曬2018 伊索比亞 TOH 日曬組冠軍</td>
                 <td>Ethiopia Guji Buku Abel Hambella Rouge Peony N G1 18TOH Cham</td>
+                <td>日曬</td>
                 <td>N/A</td>
                 <td>花香牡丹麝香葡萄 杏桃尾韻綿長</td>
                 <td>200</td>
                 <td>650</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="650"></td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>衣索比亞 季馬 利穆藝 PH3.7/48hr 微厭氧日曬</td>
                 <td>Ethiopia Jimma Limu Geisha PH3.7 48hr Anaerobic Natural</td>
+                <td>厭氧日曬</td>
                 <td>N/A</td>
                 <td>花香 百香果 芒果 熟果甜 莓果</td>
                 <td>200</td>
                 <td>570</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="570"></td>
             </tr>
             <tr>
                 <td>5</td>
                 <td>哥斯大黎加 西部谷地 多諾莊園 阿奎雷拉兄弟 Villa Sachi 蜜處理</td>
                 <td>Costa Rica West Vally Finca Tono Aguilera Brothers Villa Sachi Honey</td>
+                <td>蜜處理</td>
                 <td>N/A</td>
                 <td>柑橘 奶油 香草 豆蔻 青蘋果細緻酸質</td>
                 <td>200</td>
                 <td>560</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="560"></td>
             </tr>
             <tr>
                 <td>6</td>
                 <td>哥斯大黎加 塔拉珠 米拉蘇莊園 Esteban Sanches Maico 小藝伎 蜜處理</td>
                 <td>Costa Rica Tarrazu Finca Mirazu Maico Geisha Honey Process</td>
+                <td>蜜處理</td>
                 <td>N/A</td>
                 <td>花香 青蘋果 柑橘 佛手柑 焦糖</td>
                 <td>200</td>
                 <td>450</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="450"></td>
             </tr>
             <tr>
                 <td>7</td>
                 <td>瓜地馬拉 安提瓜 希望莊園 月光女神 Bourbon/Catuai SHB 水洗</td>
                 <td>Gutamala Milpes Altas Antiqua Finca La Esperanza Bourbon/Catuai SHB W</td>
+                <td>水洗</td>
                 <td>N/A</td>
                 <td>紅蘋果 可可 香橙 酸質細緻</td>
                 <td>200</td>
                 <td>350</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="350"></td>
             </tr>
             <tr>
                 <td>8</td>
                 <td>巴西 喜拉朵 米納羅NY2 篩選SSFC品質目樹 17/18日曬處理</td>
                 <td>Brazil Cerrado Minerio NY2 SSFC 17/18 Screen 17/18 Natural</td>
+                <td>日曬</td>
                 <td>N/A</td>
                 <td>堅果 核桃 奶油 口感圓潤 平衡細緻</td>
                 <td>200</td>
                 <td>360</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="360"></td>
             </tr>
             <tr>
                 <td>9</td>
                 <td>哥倫比亞 金迪奧 多瑙河莊園 甜野莓日曬 Caturra 二氧化碳浸漬法</td>
                 <td>Colombia Quindio El Danubio Estate Caturra Strawberry CM Process</td>
+                <td>日曬 Caturra 二氧化碳浸漬法</td>
                 <td>N/A</td>
                 <td>橙花 葡萄 酒漬櫻桃 飽滿甜感</td>
                 <td>200</td>
                 <td>660</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="660"></td>
             </tr>
             <tr>
                 <td>10</td>
                 <td>哥倫比亞 薇拉 皮塔利托 迪維索莊園 Bourbon Sidra 雙重發酵日曬</td>
                 <td>Colombia Huila Pitalito El Diviso Bourbon Sidra Dbl Fermentation N</td>
+                <td>雙重發酵日曬</td>
                 <td>N/A</td>
                 <td>玫瑰 水蜜桃 木瓜軟糖 山竹 荔枝</td>
                 <td>200</td>
                 <td>760</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="760"></td>
             </tr>
             <tr>
                 <td>11</td>
                 <td>祕魯 胡寧 安地斯神鷹 Java 16-18目水洗處理</td>
                 <td>Peru Junin Hanan Pacha Java 16 - 18 mesh Washed Process</td>
+                <td>水洗</td>
                 <td>N/A</td>
                 <td>紅花香 柳橙 奶油 堅果 風乾蔓越莓</td>
                 <td>200</td>
                 <td>790</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="790"></td>
             </tr>
             <tr>
                 <td>12</td>
-                <td>厄瓜多 洛哈 木瓜莊園 W 馬悠 Mejorado Tri-Up 雙重發酵水洗</td>
+                <td>厄瓜多 洛哈 木瓜莊園 W 馬悠 Mejorado Tri-Up (台灣手沖賽冠軍用豆)</td>
                 <td>Ecuador Loja La Papaya W Mayo Mejorado Tri up Dbl Ferment Wash</td>
+                <td>雙重發酵水洗</td>
                 <td>N/A</td>
                 <td>花香黃色水果 鳳梨 葡萄 細緻明確的風味</td>
                 <td>200</td>
                 <td>880</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="880"></td>
             </tr>
             <tr>
                 <td>13</td>
                 <td>巴拿馬 波奎特 聖費莉莎莊園 Caturra 水洗</td>
                 <td>Panama Boquete Santa Felisa Estate Caturra Washed</td>
+                <td>水洗</td>
                 <td>N/A</td>
                 <td>柑橘 堅果 蘋果 蜜甜香</td>
                 <td>200</td>
                 <td>450</td>
-                <td><input type="number" min="0" value="0" onchange="updateSummary()"></td>
+                <td><input type="number" min="0" class="quantity-input" data-price="450"></td>
             </tr>
         </tbody>
     </table>
 
-    <button class="clear-btn" onclick="clearQuantities()">清除</button>
+    <!-- Clear Button -->
+    <button class="clear-button" onclick="clearQuantities()">清除</button>
 
-    <div class="summary">
-        <h2>訂購總覽</h2>
-        <table id="summaryTable" class="hidden">
-            <thead>
-                <tr>
-                    <th>序號</th>
-                    <th>品項 (中)</th>
-                    <th>Item (EN)</th>
-                    <th>單價</th>
-                    <th>數量</th>
-                    <th>小計</th>
-                </tr>
-            </thead>
-            <tbody id="summaryBody"></tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5" style="text-align: right;">加總金額</td>
-                    <td id="totalAmount">0</td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+    <!-- Summary Table -->
+    <table id="summaryTable" class="summary-table">
+        <thead>
+            <tr>
+                <th>序號</th>
+                <th>品項(中)</th>
+                <th>Item (EN)</th>
+                <th>單價</th>
+                <th>數量</th>
+                <th>小計</th>
+            </tr>
+        </thead>
+        <tbody id="summaryBody"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" style="text-align: right;">加總金額</td>
+                <td id="totalAmount">0</td>
+            </tr>
+        </tfoot>
+    </table>
 
-    <div class="shipping">
-        <h2>寄送方式</h2>
-        <label><input type="radio" name="shipping" value="delivery" onclick="toggleShipping()"> 宅配</label>
-        <div id="deliveryForm" class="hidden">
+    <!-- Delivery Form -->
+    <div class="delivery-form">
+        <h3>寄送方式</h3>
+        <label><input type="radio" name="delivery" value="home" onclick="toggleDeliveryForm()"> 宅配</label>
+        <div id="homeDelivery" style="display: none;">
             <label>姓名 Name</label>
-            <input type="text" name="deliveryName">
+            <input type="text" maxlength="35" placeholder="請輸入姓名">
             <label>電話 TEL</label>
-            <input type="tel" name="deliveryTel">
+            <input type="tel" maxlength="35" placeholder="請輸入電話">
             <label>地址 Address</label>
-            <input type="text" name="deliveryAddress">
+            <input type="text" maxlength="35" placeholder="請輸入地址">
         </div>
-        <label><input type="radio" name="shipping" value="store" onclick="toggleShipping()"> 超商店到店</label>
-        <div id="storeForm" class="hidden">
-            <label><input type="checkbox" name="storeType" value="7-11"> 7-11</label>
-            <label><input type="checkbox" name="storeType" value="FamilyMart"> 全家</label>
+        <label><input type="radio" name="delivery" value="store" onclick="toggleDeliveryForm()"> 超商店到店</label>
+        <div id="storeDelivery" style="display: none;">
+            <label><input type="radio" name="storeType" value="7-11"> 7-11</label>
+            <label><input type="radio" name="storeType" value="FamilyMart"> 全家</label>
             <label>姓名 Name</label>
-            <input type="text" name="storeName">
+            <input type="text" maxlength="35" placeholder="請輸入姓名">
             <label>電話 TEL</label>
-            <input type="tel" name="storeTel">
-            <label>分店</label>
-            <input type="text" name="storeBranch">
+            <input type="tel" maxlength="35" placeholder="請輸入電話">
+            <label>分店名稱</label>
+            <input type="text" maxlength="35" placeholder="請輸入分店名稱">
         </div>
     </div>
 
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>耳掛式/濾泡式 精品咖啡歡迎洽詢訂購</strong><br>
+        - All coffee are carefully selected and roasted by Eske Place -<br>
+        每一支咖啡都經由Eske Place 仔細篩選與烘焙 因為這是我們對於好喝的堅持</p>
+        <p><a href="https://www.facebook.com/eskeplace">ESKE PLACE COFFEE PLACE</a></p>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
     <script>
+        function clearQuantities() {
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.value = 0;
+            });
+            updateSummary();
+        }
+
         function updateSummary() {
             const table = document.getElementById('coffeeTable');
-            const rows = table.getElementsByTagName('tr');
             const summaryBody = document.getElementById('summaryBody');
-            const summaryTable = document.getElementById('summaryTable');
             const totalAmountCell = document.getElementById('totalAmount');
+            const summaryTable = document.getElementById('summaryTable');
             summaryBody.innerHTML = '';
             let total = 0;
-            let hasItems = false;
 
-            for (let i = 1; i < rows.length; i++) {
-                const cells = rows[i].getElementsByTagName('td');
-                const quantity = parseInt(cells[7].getElementsByTagName('input')[0].value) || 0;
+            table.querySelectorAll('tr').forEach((row, index) => {
+                const quantity = parseInt(row.querySelector('.quantity-input')?.value || 0);
                 if (quantity > 0) {
-                    hasItems = true;
-                    const id = cells[0].innerText;
-                    const name = cells[1].innerText;
-                    const nameEn = cells[2].innerText;
-                    const price = parseInt(cells[6].innerText.replace('$', '')) || 0;
+                    const cells = row.querySelectorAll('td');
+                    const serial = cells[0].textContent;
+                    const itemZh = cells[1].textContent;
+                    const itemEn = cells[2].textContent;
+                    const price = parseInt(cells[7].textContent);
                     const subtotal = price * quantity;
                     total += subtotal;
 
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${id}</td>
-                        <td>${name}</td>
-                        <td>${nameEn}</td>
+                    const summaryRow = document.createElement('tr');
+                    summaryRow.innerHTML = `
+                        <td>${serial}</td>
+                        <td>${itemZh}</td>
+                        <td>${itemEn}</td>
                         <td>${price}</td>
                         <td>${quantity}</td>
                         <td>${subtotal}</td>
                     `;
-                    summaryBody.appendChild(row);
+                    summaryBody.appendChild(summaryRow);
                 }
-            }
+            });
 
-            totalAmountCell.innerText = total;
-            summaryTable.classList.toggle('hidden', !hasItems);
+            totalAmountCell.textContent = total;
+            summaryTable.style.display = total > 0 ? 'table' : 'none';
         }
 
-        function clearQuantities() {
-            const inputs = document.querySelectorAll('#coffeeTable input[type="number"]');
-            inputs.forEach(input => input.value = '0');
-            updateSummary();
+        function toggleDeliveryForm() {
+            const homeDelivery = document.getElementById('homeDelivery');
+            const storeDelivery = document.getElementById('storeDelivery');
+            const deliveryType = document.querySelector('input[name="delivery"]:checked')?.value;
+
+            homeDelivery.style.display = deliveryType === 'home' ? 'block' : 'none';
+            storeDelivery.style.display = deliveryType === 'store' ? 'block' : 'none';
         }
 
-        function toggleShipping() {
-            const deliveryForm = document.getElementById('deliveryForm');
-            const storeForm = document.getElementById('storeForm');
-            const deliveryRadio = document.querySelector('input[value="delivery"]');
-            const storeRadio = document.querySelector('input[value="store"]');
-
-            deliveryForm.classList.toggle('hidden', !deliveryRadio.checked);
-            storeForm.classList.toggle('hidden', !storeRadio.checked);
-        }
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('input', updateSummary);
+        });
     </script>
 </body>
 </html>
